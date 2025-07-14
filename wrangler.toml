@@ -1,0 +1,11 @@
+name = "gemini-proxy-worker"
+main = "src/index.ts"
+compatibility_date = "2024-05-29"
+
+kv_namespaces = [
+  { binding = "GEMINI_CREDS_KV", id = "06ffd2dbaa3e41a093db166be089ac6f" }
+]
+
+[vars]
+# GEMINI_PROJECT_ID = "your-gcp-project-id" # Optional: Your Google Cloud Project ID
+# GCP_SERVICE_ACCOUNT = "" # Required: The JSON content of your OAuth2 credentials
