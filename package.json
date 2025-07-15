@@ -4,14 +4,31 @@
   "description": "A Cloudflare Worker to proxy Gemini API requests to the Code Assist API.",
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "dev:local": "wrangler dev --local",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:production": "npm run build && wrangler deploy --env production",
+    "deploy:development": "npm run build && wrangler deploy --env development",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --run --coverage",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "pretest": "npm run build",
+    "predeploy": "npm run test",
+    "health-check": "curl -f http://localhost:8787/health || exit 1",
+    "validate-config": "node -e \"console.log('Config validation would run here')\"",
+    "setup": "npm install && npm run build"
   },
   "dependencies": {
-    "hono": "^4.4.6"
+    "hono": "^4.4.6",
+    "vitest": "^3.2.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
+    "typescript": "^5.8.3",
     "wrangler": "^4.24.3"
   }
 }

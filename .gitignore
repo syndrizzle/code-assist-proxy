@@ -84,6 +84,12 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+# TypeScript compiled output
+dist/
+src/**/*.js
+src/*.js
+src/**/*.js.map
+
 # Optional npm cache directory
 .npm
 
@@ -234,3 +240,4 @@ dist/**
 
 .dev.vars
 .node-cache/
+.kiro
